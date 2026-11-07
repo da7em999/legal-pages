@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظام إدارة مكاتب المحاماة | Law من داهم</title>
+<meta name="description" content="Law — نظام إدارة مكاتب المحاماة من داهم: القضايا والجلسات والموكلين والمستندات والأتعاب والفواتير، مع تنبيهات لمواعيد الجلسات وتقارير كاملة للمكتب.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="نظام إدارة مكاتب المحاماة | Law من داهم">
+<meta property="og:description" content="كل قضايا مكتبك وجلساتها وموكليها وأتعابها في مكان واحد — مع تنبيهات جلسات ما تفوّتش أي ميعاد.">
+<meta property="og:image" content="https://legal.dahem.cloud/shot-dash.jpg">
+<meta property="og:url" content="https://legal.dahem.cloud/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="dahem-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Law — نظام إدارة مكاتب المحاماة",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "url": "https://legal.dahem.cloud/",
+  "inLanguage": "ar",
+  "description": "نظام إدارة مكاتب المحاماة: القضايا والجلسات والموكلين والمستندات والأتعاب والفواتير، مع تنبيهات لمواعيد الجلسات وتقارير كاملة للمكتب.",
+  "publisher": { "@type": "Organization", "name": "داهم", "url": "https://dahem.cloud" }
+}
+</script>
+<style>
+  :root{
+    --page: hsl(210 20% 96%);
+    --surface: #ffffff;
+    --surface-2: hsl(210 25% 98%);
+    --ink: hsl(215 28% 17%);
+    --ink-soft: hsl(215 14% 42%);
+    --line: hsl(214 20% 88%);
+    --brand: hsl(35 92% 48%);
+    --brand-dark: hsl(32 90% 40%);
+    --brand-soft: hsl(38 95% 93%);
+    --sky: hsl(195 90% 53%);
+    --sky-soft: hsl(197 92% 94%);
+    --green: hsl(152 55% 38%);
+    --r-sm: 6px; --r-md: 10px; --r-lg: 14px; --r-xl: 20px;
+    --shadow-sm: 0 1px 2px hsl(215 30% 20% / .05), 0 4px 14px hsl(215 30% 20% / .05);
+    --shadow-lg: 0 12px 40px -12px hsl(215 35% 20% / .22), 0 4px 14px hsl(215 30% 20% / .06);
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:'Almarai', system-ui, sans-serif;
+    background:var(--page); color:var(--ink);
+    line-height:1.75; -webkit-font-smoothing:antialiased;
+  }
+  .num, .stat b{ font-family:'Inter','Almarai',sans-serif; }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+  .wrap{ max-width:1140px; margin-inline:auto; padding-inline:20px; }
+
+  /* Header */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:hsl(0 0% 100% / .88); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-in{ display:flex; align-items:center; gap:18px; padding-block:12px; }
+  .brand{ display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.25rem; }
+  .brand img{ width:40px; height:40px; object-fit:contain; }
+  .brand small{ display:block; font-size:.72rem; font-weight:400; color:var(--ink-soft); line-height:1.2; }
+  nav.main{ margin-inline-start:auto; display:flex; gap:26px; font-weight:700; font-size:.98rem; }
+  nav.main a{ color:var(--ink-soft); transition:color .2s; }
+  nav.main a:hover{ color:var(--brand-dark); }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:inherit; font-weight:800; font-size:1rem; cursor:pointer;
+    border-radius:var(--r-md); padding:11px 22px; border:1px solid transparent;
+    transition:transform .15s, box-shadow .2s, background .2s;
+  }
+  .btn:active{ transform:scale(.97); }
+  .btn-brand{ background:var(--brand); color:#fff; box-shadow:0 6px 18px -6px hsl(35 92% 48% / .55); }
+  .btn-brand:hover{ background:var(--brand-dark); }
+  .btn-wa{ background:hsl(142 62% 40%); color:#fff; box-shadow:0 6px 18px -6px hsl(142 62% 40% / .5); }
+  .btn-wa:hover{ background:hsl(142 62% 34%); }
+  .btn-ghost{ background:var(--surface); border-color:var(--line); color:var(--ink); }
+  .btn-ghost:hover{ border-color:var(--brand); color:var(--brand-dark); }
+  .btn-sm{ padding:8px 18px; font-size:.95rem; }
+  @media (max-width:760px){ nav.main{ display:none; } }
+
+  /* Hero */
+  .hero{ padding:64px 0 30px; text-align:center; }
+  .hero .kick{
+    display:inline-block; background:var(--sky-soft); color:hsl(197 85% 32%);
+    font-weight:800; font-size:.85rem; padding:5px 14px; border-radius:999px; margin-bottom:18px;
+  }
+  .hero h1{ font-size:clamp(1.9rem, 4.6vw, 3.1rem); font-weight:800; line-height:1.35; max-width:820px; margin-inline:auto; }
+  .hero h1 em{ font-style:normal; color:var(--brand-dark); }
+  .hero p.lead{ color:var(--ink-soft); font-size:clamp(1.02rem, 2vw, 1.2rem); max-width:680px; margin:18px auto 28px; }
+  .hero-ctas{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .hero-note{ margin-top:14px; font-size:.88rem; color:var(--ink-soft); }
+
+  /* Browser frame */
+  .frame{
+    max-width:940px; margin:44px auto 0; background:var(--surface);
+    border:1px solid var(--line); border-radius:var(--r-xl);
+    box-shadow:var(--shadow-lg); overflow:hidden; text-align:start;
+  }
+  .frame-bar{
+    display:flex; align-items:center; gap:7px; padding:11px 16px;
+    border-bottom:1px solid var(--line); background:var(--surface-2);
+  }
+  .frame-bar i{ width:11px; height:11px; border-radius:50%; display:block; }
+  .frame-bar .u{
+    margin-inline-start:10px; background:#fff; border:1px solid var(--line);
+    border-radius:var(--r-sm); font-size:.78rem; color:var(--ink-soft);
+    padding:3px 12px; font-family:'Inter',sans-serif; direction:ltr;
+  }
+  .frame img{ width:100%; }
+
+  /* Trust strip */
+  .trust{ padding:38px 0 6px; }
+  .trust-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+  .stat{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg);
+    padding:20px 16px; text-align:center; box-shadow:var(--shadow-sm);
+  }
+  .stat b{ font-size:1.7rem; font-weight:800; color:var(--brand-dark); display:block; line-height:1.2; }
+  .stat span{ font-size:.92rem; color:var(--ink-soft); }
+  @media (max-width:760px){ .trust-grid{ grid-template-columns:repeat(2,1fr); } }
+
+  /* Sections */
+  section{ padding:64px 0; }
+  .sec-head{ text-align:center; max-width:640px; margin:0 auto 40px; }
+  .sec-head h2{ font-size:clamp(1.5rem, 3.4vw, 2.1rem); font-weight:800; line-height:1.4; }
+  .sec-head p{ color:var(--ink-soft); margin-top:10px; }
+
+  .feat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  @media (max-width:900px){ .feat-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:580px){ .feat-grid{ grid-template-columns:1fr; } }
+  .feat{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg);
+    padding:26px 22px; box-shadow:var(--shadow-sm); transition:transform .2s, box-shadow .2s;
+  }
+  .feat:hover{ transform:translateY(-3px); box-shadow:var(--shadow-lg); }
+  .feat .ic{
+    width:48px; height:48px; border-radius:var(--r-md); display:grid; place-items:center;
+    background:var(--brand-soft); color:var(--brand-dark); margin-bottom:14px;
+  }
+  .feat:nth-child(even) .ic{ background:var(--sky-soft); color:hsl(197 85% 34%); }
+  .feat .ic svg{ width:25px; height:25px; }
+  .feat h3{ font-size:1.12rem; font-weight:800; margin-bottom:7px; }
+  .feat p{ color:var(--ink-soft); font-size:.96rem; }
+  .mini-feats{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:26px; }
+  .mini-feats span{
+    background:var(--surface); border:1px solid var(--line); border-radius:999px;
+    padding:7px 16px; font-size:.9rem; font-weight:700; color:var(--ink-soft); box-shadow:var(--shadow-sm);
+  }
+
+  .flow{
+    display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:center; margin-top:8px;
+  }
+  .flow b{
+    background:var(--surface); border:1.5px solid var(--brand); color:var(--brand-dark);
+    border-radius:999px; padding:7px 18px; font-size:.95rem;
+  }
+  .flow i{ color:var(--ink-soft); font-style:normal; }
+
+  /* Audience */
+  .aud-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+  @media (max-width:900px){ .aud-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:520px){ .aud-grid{ grid-template-columns:1fr; } }
+  .aud{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg);
+    padding:24px 20px; text-align:center; box-shadow:var(--shadow-sm);
+  }
+  .aud .em{ font-size:1.9rem; line-height:1; }
+  .aud h3{ font-size:1.05rem; font-weight:800; margin:10px 0 5px; }
+  .aud p{ font-size:.9rem; color:var(--ink-soft); }
+
+  /* Steps */
+  .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  @media (max-width:760px){ .steps{ grid-template-columns:1fr; } }
+  .step{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg);
+    padding:28px 22px; box-shadow:var(--shadow-sm); position:relative;
+  }
+  .step .n{
+    width:40px; height:40px; border-radius:50%; background:var(--brand); color:#fff;
+    display:grid; place-items:center; font-family:'Inter',sans-serif; font-weight:800; font-size:1.15rem;
+    margin-bottom:14px; box-shadow:0 6px 14px -5px hsl(35 92% 48% / .6);
+  }
+  .step h3{ font-weight:800; font-size:1.1rem; margin-bottom:6px; }
+  .step p{ color:var(--ink-soft); font-size:.95rem; }
+
+  /* Pricing */
+  .pricing{
+    background:linear-gradient(135deg, hsl(35 92% 48%), hsl(28 92% 44%));
+    border-radius:var(--r-xl); padding:46px 30px; text-align:center; color:#fff;
+    box-shadow:var(--shadow-lg);
+  }
+  .pricing h2{ font-size:clamp(1.5rem, 3.4vw, 2rem); font-weight:800; line-height:1.4; }
+  .pricing p{ opacity:.94; max-width:560px; margin:12px auto 24px; }
+  .pricing .btn{ background:#fff; color:var(--brand-dark); box-shadow:0 8px 20px -6px rgb(0 0 0 / .3); }
+  .pricing .btn:hover{ background:var(--brand-soft); }
+
+  /* FAQ */
+  .faq{ max-width:760px; margin-inline:auto; display:grid; gap:12px; }
+  .faq details{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg);
+    padding:18px 22px; box-shadow:var(--shadow-sm);
+  }
+  .faq summary{ font-weight:800; cursor:pointer; font-size:1.02rem; list-style:none; }
+  .faq summary::-webkit-details-marker{ display:none; }
+  .faq summary::after{ content:"+"; float:left; color:var(--brand-dark); font-family:'Inter',sans-serif; font-weight:700; }
+  .faq details[open ] summary::after{ content:"–"; }
+  .faq p{ color:var(--ink-soft); margin-top:9px; font-size:.96rem; }
+
+  /* Band */
+  .band{ display:grid; grid-template-columns:1fr 1fr; gap:34px; align-items:start; }
+  @media (max-width:820px){ .band{ grid-template-columns:1fr; } }
+  .band h2{ font-size:clamp(1.4rem, 3vw, 1.9rem); font-weight:800; line-height:1.45; }
+  .band p{ color:var(--ink-soft); margin-top:12px; }
+  .band ul{ margin-top:16px; display:grid; gap:9px; list-style:none; }
+  .band li{ font-weight:700; font-size:.98rem; }
+  .band li::before{ content:"✓"; color:var(--green); font-weight:800; margin-inline-end:8px; }
+
+  /* Footer */
+  footer{ border-top:1px solid var(--line); background:var(--surface); padding:36px 0; margin-top:20px; }
+  .foot{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  .foot img{ width:36px; height:36px; object-fit:contain; }
+  .foot .links{ margin-inline-start:auto; display:flex; gap:22px; font-weight:700; font-size:.94rem; }
+  .foot .links a{ color:var(--ink-soft); }
+  .foot .links a:hover{ color:var(--brand-dark); }
+  .foot-note{ width:100%; color:var(--ink-soft); font-size:.88rem; margin-top:8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-in">
+    <a class="brand" href="#">
+      <img src="dahem-logo.png" alt="Law — من داهم">
+      <span>Law<small>إدارة مكاتب المحاماة — من داهم</small></span>
+    </a>
+    <nav class="main">
+      <a href="#features">المميزات</a>
+      <a href="#audience">لمن يناسب</a>
+      <a href="#pricing">الباقات</a>
+      <a href="#faq">الأسئلة</a>
+      <a href="https://law.dahem.cloud/" target="_blank" rel="noopener">دخول العملاء</a>
+      <a href="https://portal.dahem.cloud/support?body=%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%85%3A%20%D8%AF%D8%A7%D9%87%D9%85%20%D9%82%D8%A7%D9%86%D9%88%D9%86%20%D9%85%D8%B5%D8%B1" target="_blank" rel="noopener">الدعم الفني</a>
+    </nav>
+    <a class="btn btn-brand btn-sm" href="https://demo.dahem.cloud/lion/" target="_blank" rel="noopener">جرّب الديمو</a>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <div class="hero wrap">
+    <span class="kick">نظام إدارة مكاتب المحاماة</span>
+    <h1>كل قضايا مكتبك… <em>جلساتها ومواعيدها وأتعابها</em> في مكان واحد</h1>
+    <p class="lead">Law يدير مكتب المحاماة كامل: ملف لكل قضية من أول التوكيل لحد الحكم والتنفيذ، جدول جلسات بتنبيهات ما تفوّتش أي ميعاد، موكلون ومستندات وأتعاب وفواتير — من شاشة واحدة.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-brand" href="https://demo.dahem.cloud/lion/" target="_blank" rel="noopener">جرّب الديمو الحي</a>
+      <a class="btn btn-wa" href="https://wa.me/201041857210" target="_blank" rel="noopener">كلمنا واتساب</a>
+    </div>
+    <p class="hero-note">الديمو شغّال ببيانات تجريبية كاملة — افتحه وجرّب بنفسك. عميل حالي؟ <a href="https://law.dahem.cloud/" target="_blank" rel="noopener" style="color:var(--brand-dark); font-weight:800;">ادخل على نظامك من هنا</a></p>
+
+    <div class="frame" role="img" aria-label="لوحة تحكم نظام Law لإدارة مكاتب المحاماة">
+      <div class="frame-bar">
+        <i style="background:#f26d6d"></i><i style="background:#f5bf4f"></i><i style="background:#61c454"></i>
+        <span class="u">demo.dahem.cloud/lion</span>
+      </div>
+      <img src="shot-dash.jpg" alt="لوحة تحكم نظام Law — القضايا والجلسات القادمة وتنبيهات المواعيد">
+    </div>
+  </div>
+
+  <!-- Trust strip -->
+  <div class="trust wrap">
+    <div class="trust-grid">
+      <div class="stat"><b>6</b><span>وحدات متكاملة: قضايا، جلسات، موكلون، مستندات، أتعاب، تقارير</span></div>
+      <div class="stat"><b>0</b><span>جلسات بتفوت — تنبيهات مواعيد قبل كل جلسة</span></div>
+      <div class="stat"><b>1</b><span>ملف موحّد لكل قضية: أطراف ومستندات وجلسات ومصروفات</span></div>
+      <div class="stat"><b>24/7</b><span>وصول آمن لبيانات مكتبك من أي جهاز وفي أي وقت</span></div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <section id="features">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>مميزات اتبنت من شغل مكاتب المحاماة الحقيقي</h2>
+        <p>مش مجرد تسجيل قضايا — النظام بيمنع الأخطاء اللي بتكلّف المكتب قضية أو موكّل.</p>
+      </div>
+      <div class="feat-grid">
+        <article class="feat">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 7l7-4 7 4M5 7l-2.5 6a3.5 3.5 0 0 0 5 0L5 7zM19 7l-2.5 6a3.5 3.5 0 0 0 5 0L19 7zM8 21h8"/></svg></div>
+          <h3>إدارة القضايا بملف كامل</h3>
+          <p>كل قضية لها ملف موحّد: رقم القضية والمحكمة والدائرة، الأطراف والخصوم، نوع القضية ومرحلتها وحالتها لحظة بلحظة — من أول التوكيل والتسجيل لحد الحكم والتنفيذ، وسجل زمني بكل إجراء اتعمل وإمتى.</p>
+        </article>
+        <article class="feat">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 16l2 2 4-4.5"/></svg></div>
+          <h3>الجلسات وتنبيهات المواعيد</h3>
+          <p>جدول جلسات واضح لكل المكتب أو لكل محامي لوحده، مع تنبيهات قبل موعد الجلسة عشان مفيش ميعاد يفوت. كل جلسة مرتبطة بقضيتها ومحكمتها، وقرار الجلسة والتأجيل بيتسجل على ملف القضية مباشرة.</p>
+        </article>
+        <article class="feat">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c.6-3.2 3-5 6-5s5.4 1.8 6 5M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 15.4c1.4.8 2.3 2.3 2.6 4.6"/></svg></div>
+          <h3>الموكلون وتوكيلاتهم</h3>
+          <p>قاعدة بيانات موكلين كاملة: بيانات التواصل والتوكيلات، وكل موكّل مربوط بقضاياه ومدفوعاته ومستحقاته. تدور على أي موكّل أو قضية في ثواني — بدل دفاتر وملفات متبعترة.</p>
+        </article>
+        <article class="feat">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></div>
+          <h3>المستندات والمذكرات</h3>
+          <p>مستندات كل قضية ومذكراتها وعقودها منظمة داخل ملف القضية نفسه — تفتح القضية تلاقي كل ورقها قدامك، من غير بحث في أدراج أو ملفات وورد متسمية عشر مرات.</p>
+        </article>
+        <article class="feat">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4.5V3h6v1.5M9 10h6M9 14h6M9 18h4"/></svg></div>
+          <h3>الأتعاب والفواتير والمصروفات</h3>
+          <p>أتعاب كل قضية ومصروفاتها (رسوم، انتقالات، خبراء…) متسجلة بند بند، وفواتير للموكلين ومتابعة تحصيل بمين دفع ومين عليه باقي — صورة مالية واضحة للمكتب في أي لحظة.</p>
+        </article>
+        <article class="feat">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div>
+          <h3>تقارير المكتب</h3>
+          <p>تقارير القضايا والجلسات والتحصيل والمستحقات: كام قضية شغالة، جلسات الأسبوع الجاي، أتعاب اتحصلت ولسه — أرقام جاهزة لصاحب المكتب من غير ما حد يقعد يجمعها يدوي.</p>
+        </article>
+      </div>
+      <div class="mini-feats">
+        <span>بحث فوري في القضايا والموكلين</span>
+        <span>تنبيهات جلسات ومواعيد نهائية</span>
+        <span>صلاحيات للمحامين وفريق المكتب</span>
+        <span>فواتير وسندات قبض مطبوعة</span>
+        <span>نسخ احتياطي واستعادة للبيانات</span>
+      </div>
+      <div class="flow" aria-label="دورة القضية في Law">
+        <b>توكيل وفتح قضية</b><i>←</i><b>توثيق المستندات</b><i>←</i><b>جلسات ومتابعة</b><i>←</i><b>حكم وتنفيذ</b><i>←</i><b>تحصيل الأتعاب</b>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audience -->
+  <section id="audience" style="padding-top:20px;">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>لمن يناسب Law؟</h2>
+        <p>من محامي فردي لشركة محاماة بفريق كامل — النظام بيكبر مع مكتبك.</p>
+      </div>
+      <div class="aud-grid">
+        <div class="aud"><div class="em">⚖️</div><h3>مكاتب المحاماة الفردية</h3><p>قضاياك وجلساتك وموكليك منظمين من أول يوم — من غير سكرتارية إضافية.</p></div>
+        <div class="aud"><div class="em">🏛️</div><h3>شركات المحاماة</h3><p>فريق محامين بصلاحيات، وكل محامي شايف قضاياه وجلساته، والإدارة شايفة الصورة كاملة.</p></div>
+        <div class="aud"><div class="em">📅</div><h3>مكاتب الجلسات الكثيفة</h3><p>جلسات كل يوم في محاكم مختلفة؟ التنبيهات وجدول الجلسات بيمنعوا أي ميعاد يفوت.</p></div>
+        <div class="aud"><div class="em">💼</div><h3>المستشارون القانونيون</h3><p>استشارات وموكلون وأتعاب متابعة — ملف موحّد لكل عميل وكل قضية.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security / roles band -->
+  <section style="padding-top:10px;">
+    <div class="wrap band">
+      <div>
+        <h2>بيانات موكلينك سرية — ومحمية بصلاحيات</h2>
+        <p>ملفات القضايا والمستندات بيانات حساسة، فالنظام مبني على دخول آمن وصلاحيات حسب الدور:</p>
+        <ul>
+          <li>صاحب المكتب: كل القضايا والتقارير والأتعاب والإعدادات</li>
+          <li>المحامون: القضايا والجلسات الموكلة ليهم ومتابعتها</li>
+          <li>فريق المكتب: التسجيل والمتابعة الإدارية حسب ما تحدده</li>
+          <li>سجل نشاط بيقول مين عمل إيه وإمتى على كل قضية</li>
+        </ul>
+      </div>
+      <div>
+        <h2>متاح أونلاين وأوفلاين</h2>
+        <p>اختار اللي يناسب مكتبك: نسخة أونلاين توصلها من أي مكان، أو نسخة أوفلاين على أجهزة المكتب — وبترخيص رسمي من داهم لكل نسخة:</p>
+        <ul>
+          <li>ترخيص مخصص لمكتبك وأجهزتك</li>
+          <li>نسخ احتياطي واستعادة لبيانات المكتب</li>
+          <li>تحديثات ودعم فني من فريق داهم</li>
+          <li>بيانات المكتب بهوية مكتبك واسمه</li>
+        </ul>
+        <p style="margin-top:16px;"><a class="btn btn-ghost btn-sm" href="https://law.dahem.cloud/" target="_blank" rel="noopener">دخول العملاء الحاليين</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section style="padding-top:10px;">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>كيف تبدأ؟</h2>
+        <p>ثلاث خطوات ومكتبك شغّال بالنظام.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><h3>جرّب الديمو الحي</h3><p>افتح الديمو واتجول في قضايا وجلسات وموكلين ببيانات تجريبية كاملة، وشوف النظام على شغل شبه شغل مكتبك.</p></div>
+        <div class="step"><div class="n">2</div><h3>كلمنا واتساب</h3><p>قولنا حجم مكتبك وعدد المحامين ونوع القضايا الغالب، وهنجهز لك عرض سعر مخصص ونسخة بهوية مكتبك وبياناتك.</p></div>
+        <div class="step"><div class="n">3</div><h3>استلم واشتغل</h3><p>بنظبط لك أنواع القضايا والمحاكم والصلاحيات، ومن أول يوم القضايا والجلسات والتحصيل بيتموا من النظام.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" style="padding-top:10px;">
+    <div class="wrap">
+      <div class="pricing">
+        <h2>باقات مرنة حسب حجم مكتبك</h2>
+        <p>مفيش سعر واحد يناسب محامي فردي وشركة محاماة بعشرة محامين. اطلب عرض سعر مخصص على قد شغلك بالظبط — من غير أي التزام.</p>
+        <a class="btn" href="https://wa.me/201041857210" target="_blank" rel="noopener">اطلب عرض سعر على واتساب</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="padding-top:10px;">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>أسئلة شائعة</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>هل النظام بينبّهني قبل الجلسات؟</summary>
+          <p>أيوه. كل جلسة مسجلة بتاريخها ومحكمتها وقضيتها، والنظام بينبّهك بالجلسات القادمة عشان تظبط تحضيرك — الهدف إن مفيش ميعاد جلسة يفوت على المكتب أبدًا.</p>
+        </details>
+        <details>
+          <summary>بيانات الموكلين والقضايا آمنة؟</summary>
+          <p>نعم. الدخول بحسابات وصلاحيات حسب الدور، وكل مستخدم بيشوف اللي يخصه بس، وفيه سجل نشاط لكل إجراء. وبياناتك لها نسخ احتياطي قابل للاستعادة وقت ما تحتاجه.</p>
+        </details>
+        <details>
+          <summary>ينفع لمكتب صغير ولا لازم شركة كبيرة؟</summary>
+          <p>ينفع للاتنين. محامي فردي هيستفيد من تنظيم القضايا وتنبيهات الجلسات من أول قضية، وشركة المحاماة هتستفيد من الصلاحيات والتقارير ومتابعة فريق المحامين — الباقة بتتظبط على حجمك.</p>
+        </details>
+        <details>
+          <summary>هل فيه نسخة أوفلاين على أجهزة المكتب؟</summary>
+          <p>نعم، Law متاح بنسخة أونلاين ونسخة أوفلاين حسب ما يناسب مكتبك، وبترخيص رسمي من داهم لكل نسخة. كلمنا واتساب وهنرشح لك الأنسب لطريقة شغلك.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section style="padding-top:0;">
+    <div class="wrap" style="text-align:center;">
+      <h2 style="font-size:clamp(1.4rem,3vw,1.9rem); font-weight:800;">جاهز تنظّم مكتبك؟</h2>
+      <p style="color:var(--ink-soft); margin:10px auto 22px; max-width:520px;">جرّب الديمو بنفسك الأول، ولو عجبك خلّينا نظبطه على مكتبك.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-brand" href="https://demo.dahem.cloud/lion/" target="_blank" rel="noopener">جرّب الديمو الحي</a>
+        <a class="btn btn-wa" href="https://wa.me/201041857210" target="_blank" rel="noopener">كلمنا واتساب</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <img src="dahem-logo.png" alt="داهم">
+    <div>
+      <strong>Law</strong> — من شركة داهم
+      <div class="foot-note">نظام إدارة مكاتب المحاماة — بدعم من داهم</div>
+    </div>
+    <div class="links">
+      <a href="https://dahem.cloud" target="_blank" rel="noopener">موقع شركة داهم</a>
+      <a href="https://demo.dahem.cloud/lion/" target="_blank" rel="noopener">الديمو الحي</a>
+      <a href="https://law.dahem.cloud/" target="_blank" rel="noopener">دخول العملاء</a>
+      <a href="https://portal.dahem.cloud/support?body=%D8%A7%D9%84%D9%86%D8%B8%D8%A7%D9%85%3A%20%D8%AF%D8%A7%D9%87%D9%85%20%D9%82%D8%A7%D9%86%D9%88%D9%86%20%D9%85%D8%B5%D8%B1" target="_blank" rel="noopener">الدعم الفني</a>
+      <a href="https://wa.me/201041857210" target="_blank" rel="noopener">واتساب</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
